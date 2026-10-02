@@ -1,0 +1,47 @@
+FBS Tower: illustrative individual-based finite-storage queue model
+Levels: Ground=0 to 13. Default population: 1680, of whom 1560 use stairs.
+User observation: 11.35 seconds, classroom door to next full floor, one trial.
+User estimate: corridor walk 1.5–2 seconds. Derived stair time: 9.35–9.85 seconds.
+Sampling these independently adds assumed variation, not empirical uncertainty.
+All widths, flow rates, storage capacities, geometry, response delays and exit
+layout are unverified scenario assumptions, not code requirements or standards.
+11 risers in one flight and 6-inch riser height were reported; a second identical
+flight is unconfirmed. Geometry is lumped into segment_plan_length_m=7.1 m.
+No metric stair geometry is reconstructed from photographs.
+
+Time zero is a common alert, not ignition. Uniform 0–30 s response delay is
+assumed. Each person has one stair-travel time reused on all floor intervals.
+Roles are labels only. Base routes use exact per-floor allocation. In the
+right-fire scenario, all usual right-stair users are reassigned to the left
+stair and receive an assumed additional 8–20 s cross-corridor rerouting delay.
+Merging alternates local and upper streams when both are ready. No rerouting.
+Each floor-to-floor stair segment has finite storage and width-based admission
+flow. People retain FIFO order and cannot overtake. Downstream blockage holds
+people upstream. The lowest link also has a discharge flow limit.
+At ground, the streams enter a shared finite lobby; final doors are represented
+by their combined capacity. Right-stair closure leaves both final doors available.
+The red fire-side overlay is a visualization of route unavailability; fire,
+smoke, temperature and tenability are not calculated.
+This exit topology is assumed and must be replaced if actual exits differ.
+No classroom-door capacity is represented. Floor queues are unlimited.
+Queue time includes small numerical rounding, excludes alert response and free
+travel. Peak floor queues are sampled every 5 s and can miss between-sample peaks.
+Per-floor last-person time refers to reaching OUTSIDE, not leaving that floor.
+
+Finite storage creates congestion/back-pressure, but no continuous speed-density
+law, body forces, crushing, panic, fatigue, smoke, heat, fire spread, falls,
+assisted evacuation, lift use, detection time, or ASET/RSET safety comparison is
+included. Do not infer safety, casualties, legal compliance, or actual clearance.
+There is no automatic safe/unsafe time threshold in this model.
+One-person timing and population conservation checks verify implementation only.
+The model has not been validated against a building evacuation drill.
+Min–max ranges describe five random seeds under fixed inputs, not confidence
+intervals and not uncertainty in real building geometry or behavior.
+Animation shows compartment membership, not accurate pedestrian trajectories.
+
+For reporting: Preliminary scenario-based evacuation analysis using an
+individual-based queue network under explicitly assumed capacities.
+Replace assumptions with measurements before using results for planning.
+Background (does not substantiate the arbitrary numerical defaults):
+NIST TN 1822: https://doi.org/10.6028/NIST.TN.1822
+NIST stair movement: https://www.nist.gov/publications/movement-stairs-during-building-evacuations-0

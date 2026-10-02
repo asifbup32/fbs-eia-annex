@@ -1,0 +1,4 @@
+const loadButton=document.getElementById('load-animation');
+loadButton.addEventListener('click',()=>{const host=document.getElementById('animation-host');if(!host.firstChild){const frame=document.createElement('iframe');frame.src='assets/evacuation-animation.html';frame.title='Original right-side fire evacuation animation with playback controls';host.append(frame);}loadButton.textContent='Animation loaded';loadButton.disabled=true;host.scrollIntoView({block:'start'});});
+const sections=document.querySelectorAll('main section');
+const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){document.querySelectorAll('nav a').forEach(a=>{const current=a.hash==='#'+entry.target.id;a.classList.toggle('active',current);if(current)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});}}},{rootMargin:'-15% 0px -65% 0px'});sections.forEach(s=>observer.observe(s));
